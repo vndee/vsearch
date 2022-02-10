@@ -6,7 +6,8 @@ __pycache__/
 
 # C extensions
 *.so
-
+static/
+data/
 # Distribution / packaging
 .Python
 build/
@@ -22,13 +23,12 @@ sdist/
 var/
 wheels/
 pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
+
 .installed.cfg
 *.egg
 MANIFEST
 
-# PyInstaller
+
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
