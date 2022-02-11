@@ -7,7 +7,6 @@ ENV PYTHONPATH "${PYTHONPATH}:/app"
 RUN apt update -y
 RUN apt install -y git
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip3 install numpy torch torchvision fastapi streamlit loguru uvicorn pymilvus Pillow
 
 COPY . .
