@@ -44,6 +44,20 @@ services:
       - "etcd"
       - "minio"
 
+  server:
+    container_name: search-server
+    build: .
+    ports:
+      - 8000:8000
+    command: ["python", "server.py"]
+
+  app:
+    container_name: search-app
+    build: .
+    ports:
+      - 8501:8501
+    command: ["streamlit", "run", "app.py"]
+
 networks:
   default:
     name: milvus
