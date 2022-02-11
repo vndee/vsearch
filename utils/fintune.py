@@ -55,4 +55,4 @@ if __name__ == "__main__":
     for k in range(1, 11):
         print(f'hit@{k}:  finetuned: {hit_rate(train_da, k):.3f}')
 
-    torch.save(tuned_model.state_dict(), "data/checkpoint.pkt")
+    torch.save(tuned_model.state_dict(), "../data/checkpoint.pkt")
