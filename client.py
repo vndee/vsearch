@@ -12,7 +12,7 @@ from pymilvus import (
 
 class MilvusClient(object):
     def __init__(self):
-        self.connections = connections.connect("default", host="localhost", port="19530")
+        self.connections = connections.connect("default", host="milvus-standalone", port="19530")
         logger.info("Successfully create Milvus connection")
 
         fields = [
