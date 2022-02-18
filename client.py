@@ -11,13 +11,13 @@ from pymilvus import (
 
 
 class MilvusClient(object):
-    def __init__(self):
-        self.connections = connections.connect("default", host="milvus-standalone", port="19530")
+    def __init__(self, milvus_host="localhost", milvus_port=19530, vector_dim=1000):
+        self.connections = connections.connect("default", host=milvus_host, port=milvus_port)
         logger.info("Successfully create Milvus connection")
 
         fields = [
             FieldSchema(name="product_id", dtype=DataType.INT64),
-            FieldSchema(name="vector", dtype=DataType.FLOAT_VECTOR, dim=1000),
+            FieldSchema(name="vector", dtype=DataType.FLOAT_VECTOR, dim=vector_dim),
             FieldSchema(name="uuid", dtype=DataType.INT64),
             FieldSchema(name="id", dtype=DataType.INT64, is_primary=True, auto_id=True),
         ]

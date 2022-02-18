@@ -39,7 +39,7 @@ class SearchServiceServer(object):
         transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
     ])
 
-    milvus_client = MilvusClient()
+    milvus_client = MilvusClient(milvus_host="localhost", milvus_port=19530, vector_dim=1000)
 
     @staticmethod
     @server.on_event("startup")
@@ -102,6 +102,7 @@ class SearchServiceServer(object):
             image = SearchServiceServer.functional_transforms(image).unsqueeze(0)
             vector = SearchServiceServer.model(image).detach().numpy()
             vector = vector / np.linalg.norm(vector, axis=1)[:, None]
+            logger.debug(vector.shape)
             results = SearchServiceServer.milvus_client.search(vector[0])
 
             results = [[x[0], x[1], f"static/{x[2]}.jpg"] for x in results]

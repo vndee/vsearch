@@ -4,7 +4,7 @@ import http.client
 import streamlit as st
 from PIL import Image
 
-URL = "http://host.docker.internal:8000/search/"
+URL = "http://server:8000/search/"
 STATIC_URL = "http://localhost:8000/"
 PDP_API = "https://tiki.vn/api/v2/products/{}?platform=web&spid={}"
 

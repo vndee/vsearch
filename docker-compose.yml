@@ -46,6 +46,8 @@ services:
 
   server:
     container_name: search-server
+    depends_on:
+      - "standalone"
     build: .
     ports:
       - 8000:8000
@@ -53,6 +55,8 @@ services:
 
   app:
     container_name: search-app
+    depends_on:
+      - "server"
     build: .
     ports:
       - 8501:8501
